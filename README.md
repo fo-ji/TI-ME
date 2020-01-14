@@ -12,7 +12,7 @@
   |------|----|-------|
   |nickname|string|null: false|
   |password|string|null: false|
-  |avatar|string||
+  |avatar|text||
   |profile|text||
   |email|string|null: false, unique:true|
   ### Association
