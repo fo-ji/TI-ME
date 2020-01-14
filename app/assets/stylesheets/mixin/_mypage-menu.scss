@@ -1,0 +1,25 @@
+@mixin sidebar-title() {
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 3.5;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+@mixin sidebar-menu() {
+  font-size: 14px;
+  line-height: 2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  height: 32px;
+  padding-right: 10px;
+  padding-left: 10px;
+  align-items: center;
+  }

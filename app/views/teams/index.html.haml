@@ -1,0 +1,69 @@
+.main-container
+  .main-content
+    .header
+      .header__title
+        .header__title--logo
+          logo
+        %h1.header__title--name
+          TI-ME
+      .header__nav
+        .header__nav--avatar
+        .header__nav--account
+          王子 史也
+    .content
+      .left-container
+        .mypage  
+          .mypage__title
+            マイページ
+          .mypage__my-task
+            .mypage--logo
+            .mypage__name
+              マイタスク
+          .mypage__my-record
+            .mypage--logo
+            .mypage__name
+              タスク履歴
+          .mypage__my-total-data
+            .mypage--logo
+            .mypage__name
+              統計データ
+        .teams
+          .teams__title
+            .teams__title--name
+              チーム    
+            .teams__title--logo
+              .logo--plus
+                +     
+          .teams__list
+            .teams__list--area
+              .teams__list--name
+                TI-ME_個人アプリ
+      .right-container
+        .right-container__header    
+          .right-container__header--title
+            タスク一覧
+        .right-container__nav
+          .right-container__nav--register-icon
+            +
+        .right-container__column-name
+          .column-name__task-name
+            タスク名
+          .column-name__task-member
+            メンバー
+          .column-name__task-limit
+            期限
+
+        .right-container__list
+          %ul.right-container__tasks
+            - for i in 1..14
+              %li.tasks
+                .tasks__name
+                  [マークアップ] TOPページ
+                .tasks__member
+                  王子 史也
+                .tasks__limit
+                  2020/01/20
+                .tasks__start-icon
+                  作業開始ボタン
+                .tasks__edit-icon
+                  タスク編集ボタン

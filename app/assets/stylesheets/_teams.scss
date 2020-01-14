@@ -1,0 +1,268 @@
+@import "mixin/mypage-menu";
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+
+.main-container {
+  min-width: 1260px;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background-color: #fff;
+
+  .main-content {
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #8889;
+
+    .header {
+      max-height: 56px;
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+
+      &__title {
+        width: 160px;
+        height: 24px;
+        margin: 11px 16px;
+        display: flex;
+
+        &--logo {
+          font-size: 28px;
+          display: block;
+        }
+
+        &--name {
+          font-size: 28px;
+          font-weight: bold;
+        }
+      }
+      &__nav {
+        margin-top: 7px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 18px;
+        line-height: 1;
+        width: 180px;
+        height: 42px;
+        padding-left: 5px;
+        border: 1px solid #dcdfe5;
+        border-radius: 21px 0 0 21px;
+        align-items: center;
+          
+        &--avatar {
+          background-image: url(https://img.teamhack.io/defaults/avatar-icon/img-member-noimage-11.png);
+          width: 32px;
+          min-width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+  
+        &--account {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: 100%;
+          height: 100%;
+          margin-left: 8px;
+          font-weight: 600;
+          line-height: 2.8;
+        }
+      }
+    }
+
+    .content {
+      height: calc(100vh - 56px);
+      flex-direction: row;
+      box-sizing: border-box;
+      display: flex;
+      flex: 1 1 auto;
+      border: 0;
+      overflow: hidden;
+
+      .left-container {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        background-color: #21262d;
+        color: white;
+
+        .mypage {
+          height: 145px;
+          min-height: 145px;
+          border-bottom: 1px solid #bac0c9;
+
+          &__title {
+            @include sidebar-title();
+          }
+
+          &__my-task {
+            @include sidebar-menu();
+          }
+
+          &__my-record {
+            @include sidebar-menu();
+          }
+
+          &__my-total-data {
+            @include sidebar-menu();
+          }
+        }
+
+        .teams {
+          height: calc(100vh - 145px);
+
+          &__title {
+            display: flex;
+            justify-content: space-between;
+
+            &--name {
+              @include sidebar-title();
+            }
+
+            &--logo {
+              width: 24px;
+              min-width: 24px;
+              height: 24px;
+              min-height: 24px;
+              margin: 15px 16px 0 0;
+              border: 1px solid #bac0c9;
+              border-radius: 4px;
+              background-color: #bac0c9;
+            }
+          }
+            
+          &__list {
+            @include sidebar-menu();
+
+            &--area {
+              height: 48px;
+
+              &--name {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                margin-right: 10px;
+                flex: 1;
+              }
+            }
+          }
+        }
+      }
+
+      .right-container {
+        background-color: #fff;
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        flex: 1 1 auto;
+
+        &__header {
+          height: 55px;
+          border-top: 1px solid #dcdfe5;
+          border-bottom:1px solid lightgray;
+
+          &--title {
+            padding: 15px 0 10px 15px;
+            color: #0cc;
+            font-weight: bold;
+            font-size: 20px;
+          }
+        }
+
+        &__nav {
+          font-size: 12px;
+          line-height: 1.6;
+          height: 55px;
+          min-height: 55px;
+          background-color: #f4f5f7;
+          border-bottom: 1px solid #dcdfe5;
+          
+          &--register-icon {
+            float: right;
+            margin: 13px 40px 0 0;
+            width: 30px;
+            height: 30px;
+            min-width: 32px;
+            border-radius: 4px;
+            background-color: #0cc;
+            color: #fff;
+            font-size: 20px;
+          }
+        }
+
+        &__column-name {
+          font-size: 12px;
+          line-height: 1.6;
+          height: 25px;
+          min-height: 25px;
+          background-color: #f4f5f7;
+          border-bottom: 1px solid #dcdfe5;
+          border-top: 1px solid #dcdfe5;
+          display: flex;
+          align-items: center;
+
+          .column-name__task-name {
+            margin-left: 30px;
+          }
+
+          .column-name__task-member {
+            margin: 0 300px 0 300px;
+          }
+        }
+        
+        &__list {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+          overflow-y: auto;
+          position: relative;
+
+          .right-container__tasks {
+            overflow-y: auto;
+            overflow-x: visible;
+            height: 966px;
+            background-color: #555;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
+            position: absolute;
+
+            .tasks {
+              display: flex;
+              width: 100%;
+              background-color: #fff;
+              align-items: center;
+              min-height: 56px;
+              border-bottom: 1px solid #dcdfe5;
+              padding: 10px 10px 10px 0;
+
+              &__name {
+                margin-left: 30px;
+              }
+
+              &__member {
+                margin: 0 260px 0 150px;
+              }
+
+              &__start-icon, &__edit-icon {
+                margin-left: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
