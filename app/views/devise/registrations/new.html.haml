@@ -1,0 +1,42 @@
+.signup-container
+
+  .signup-header
+    .signup-header__title
+      .signup-header__title--logo
+        ロゴ
+      .signup-header__title--name
+        TI-ME
+
+  .signup-content
+    .signup-content__inner
+      .signup-box
+        .signup-box__title
+          新規登録
+          .signup-box__title--border
+
+        .signup-box__form
+          = form_for @user do |f|
+            .form-field
+              = f.label :text, "ニックネーム", class: "label"
+              %br/
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "text-field"
+              = f.label :text, "メールアドレス", class: "label"
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field"
+              = f.label :text, "パスワード", class: "label"
+              %br/
+              = f.password_field :password, autocomplete: "current-password", class: "text-field"
+              .form-field__notice
+                ※半角英数字6文字以上で入力してください
+              .form-field__button
+                = f.submit "登録", class: "submit"
+
+      .signup-message
+        .signup-message__text
+          すでに会員の方。
+          %a.signup-message__registration-link
+            = link_to "ログインはこちら", new_user_session_path
+
+  .signup-footer
+    .signup-footer__text
+      著作権：俺

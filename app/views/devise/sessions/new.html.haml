@@ -1,0 +1,39 @@
+.login-container
+
+  .login-header
+    .login-header__title
+      .login-header__title--logo
+        ロゴ
+      .login-header__title--name
+        TI-ME
+
+  .login-content
+    .login-content__inner
+      .login-box
+        .login-box__title
+          ログイン
+          .login-box__title--border
+
+        .login-box__form
+          = form_for @user do |f|
+            .form-field
+              = f.label :text, "メールアドレス", class: "label"
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field"
+              = f.label :text, "パスワード", class: "label"
+              %br/
+              = f.password_field :password, autocomplete: "current-password", class: "text-field"
+              .form-field__notice
+                ※半角英数字6文字以上で入力してください
+              .form-field__button
+                = f.submit "ログイン", class: "submit"
+
+      .login-message
+        .login-message__text
+          初めての方。
+          %a.login-message__registration-link
+            = link_to "新規登録はこちら", new_user_registration_path
+
+  .login-footer
+    .login-footer__text
+      著作権：俺
