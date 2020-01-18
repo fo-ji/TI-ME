@@ -1,0 +1,37 @@
+.acount-edit-container
+
+  .acount-edit-header
+    .acount-edit-header__title
+      .acount-edit-header__title--logo
+        ロゴ
+      .acount-edit-header__title--name
+        TI-ME
+
+  .acount-edit-content
+    .acount-edit-content__inner
+      .acount-edit-box
+        .acount-edit-box__title
+          アカウントの編集
+          .acount-edit-box__title--border
+
+        .acount-edit-box__form
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+            .form-field
+              = f.label :text, "ニックネーム", class: "label"
+              %br/
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "text-field"
+              = f.label :text, "メールアドレス", class: "label"
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field"
+              .form-field__button
+                = f.submit "更新", class: "submit"
+
+      .acount-edit-message
+        .acount-edit-message__text
+          ログアウトはこちら。
+          %a.acount-edit-message__registration-link
+            = link_to "トップページに戻る", root_path
+
+  .acount-edit-footer
+    .acount-edit-footer__text
+      著作権：俺
