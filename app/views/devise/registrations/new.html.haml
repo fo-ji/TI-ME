@@ -15,7 +15,7 @@
           .signup-box__title--border
 
         .signup-box__form
-          = form_for @user do |f|
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             .form-field
               = f.label :text, "ニックネーム", class: "label"
               %br/

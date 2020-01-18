@@ -6,10 +6,18 @@
           logo
         %h1.header__title--name
           TI-ME
-      .header__nav
-        .header__nav--avatar
-        .header__nav--account
-          王子 史也
+      .header__nav--left
+        - if user_signed_in?
+          .header__nav--user-btn
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .header__nav--user-btn
+            = link_to "ログイン", new_user_session_path, class: 'post'
+            = link_to "新規登録", new_user_registration_path, class: 'post'
+      .header__nav--right
+        .header__nav--right-avatar
+        .header__nav--right-account
+          = current_user.nickname
     .content
       .left-container
         .mypage  
