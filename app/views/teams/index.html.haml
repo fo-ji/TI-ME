@@ -3,24 +3,24 @@
     .header
       .header__title
         .header__title--logo
-          logo
+          ロゴ
         %h1.header__title--name
           TI-ME
-      .header__nav--left
-        - if user_signed_in?
-          .header__nav--user-btn
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-        - else
-          .header__nav--user-btn
-            = link_to "ログイン", new_user_session_path, class: 'post'
-            = link_to "新規登録", new_user_registration_path, class: 'post'
-      .header__nav--right
-        .header__nav--right-avatar
-        .header__nav--right-account
+
+      .header__nav
+        .header__nav--avatar
+          = image_tag(current_user.avatar.to_s, id: "avatar")
+        .header__nav--account
           = current_user.nickname
+        %ul.header__nav--menu
+          %li.nav-link
+            = link_to "マイページ", edit_user_path(current_user)
+          %li.nav-link
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+
     .content
       .left-container
-        .mypage  
+        .mypage
           .mypage__title
             マイページ
           .mypage__my-task
@@ -38,16 +38,16 @@
         .teams
           .teams__title
             .teams__title--name
-              チーム    
+              チーム
             .teams__title--logo
               .logo--plus
-                +     
+                +
           .teams__list
             .teams__list--area
               .teams__list--name
                 TI-ME_個人アプリ
       .right-container
-        .right-container__header    
+        .right-container__header
           .right-container__header--title
             タスク一覧
         .right-container__nav
