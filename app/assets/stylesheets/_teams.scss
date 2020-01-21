@@ -45,15 +45,7 @@
         }
       }
 
-      &__nav--left {
-
-        .header__nav--user-btn {
-
-        }
-
-      }
-
-      &__nav--right {
+      &__nav {
         margin-top: 7px;
         display: flex;
         justify-content: space-around;
@@ -66,15 +58,15 @@
         border-radius: 21px 0 0 21px;
         align-items: center;
           
-        &-avatar {
-          background-image: url(https://img.teamhack.io/defaults/avatar-icon/img-member-noimage-11.png);
+        &--avatar, #avatar {
+          object-fit: cover;
           width: 32px;
           min-width: 32px;
           height: 32px;
           border-radius: 50%;
         }
   
-        &-account {
+        &--account {
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -84,6 +76,27 @@
           font-weight: 600;
           line-height: 2.8;
         }
+      }
+
+      &--menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      .nav-link {
+        width: 80px;
+        display: block;
+        font-size: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 2px;
+      }
+
+      li a:hover{
+        color: #0cc;
+        text-decoration: none;
       }
     }
 
