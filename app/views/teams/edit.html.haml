@@ -1,0 +1,21 @@
+.modal-content
+  .modal-content__inner
+    .modal-header
+
+
+    .modal-form__container
+      =form_for @team do |f|
+        .modal-form__container--left
+          = f.label :text, "チーム名"
+          = f.text_field :name, class: "team-form__input", placeholder: "チーム名を入力してください"
+
+          = f.label :text, "概要"
+          = f.text_field :summary, class: "team-form__input", placeholder: "チームについての説明"
+
+          = f.label :text, "作業期限"
+          = f.text_field :limit, class: "team-form__input", placeholder: "期限を設定"
+        .modal-form__container--right
+          = f.label :text, "メンバー"
+          = f.collection_check_boxes :user_ids, User.all, :id, :nickname
+
+          = f.submit "Save", class: "team-form__action-btn"

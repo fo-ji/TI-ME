@@ -41,11 +41,18 @@
               チーム
             .teams__title--logo
               .logo--plus
-                +
+                = link_to "+", new_team_path
           .teams__list
             .teams__list--area
               .teams__list--name
-                TI-ME_個人アプリ
+                - current_user.teams.each do |team|
+                  .team
+                    .team__name
+                      = team.name
+                    .team__message
+                      メッセージはまだありません。
+              .teams__list--edit
+                = link_to "+", edit_team_path("#")
       .right-container
         .right-container__header
           .right-container__header--title

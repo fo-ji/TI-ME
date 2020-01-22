@@ -166,6 +166,8 @@
 
             &--area {
               height: 48px;
+              display: flex;
+              justify-content: space-between;
 
               &--name {
                 overflow: hidden;
@@ -174,6 +176,11 @@
                 margin-right: 10px;
                 flex: 1;
               }
+
+              &--edit {
+
+              }
+
             }
           }
         }
